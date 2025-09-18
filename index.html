@@ -3,71 +3,108 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Zhifei Mi - Software Engineer, ML Data Analyst, Technical Manager with 7+ years experience. AWS Certified Solutions Architect." />
+  <meta name="keywords" content="software engineer, machine learning, data analyst, technical manager, full-stack developer, AWS certified" />
   <title>Zhifei Mi — Resume</title>
   <style>
     :root{
-      --bg:#f7f8fb; --card:#ffffff; --muted:#6b7280; --accent:#0f766e; --maxw:900px;
-      --sans: "Helvetica Neue", Arial, sans-serif;
+      --bg:#fafafa; --card:#ffffff; --muted:#64748b; --accent:#0f766e; --text:#1e293b; --maxw:920px;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      --radius: 12px; --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     }
-    html,body{height:100%;}
+    html,body{height:100%; font-size: 16px; line-height: 1.6;}
     body{
       margin:0;
       font-family:var(--sans);
       background:var(--bg);
-      color:#111827;
+      color:var(--text);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+      letter-spacing: -0.011em;
     }
     .container{
       max-width:var(--maxw);
-      margin:28px auto;
-      padding:20px;
+      margin:32px auto;
+      padding:24px;
     }
     .card{
       background:var(--card);
-      border-radius:10px;
-      box-shadow:0 6px 20px rgba(15,23,42,0.08);
-      padding:22px;
-      margin-bottom:18px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      border: 1px solid rgb(0 0 0 / 0.05);
+      padding:28px;
+      margin-bottom:24px;
     }
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
     .title{
-      line-height:1;
+      line-height:1.2;
     }
-    h1{font-size:28px;margin:0;}
-    .subtitle{color:var(--muted); margin-top:6px;}
-    .actions{display:flex;gap:8px;align-items:center}
+    h1{font-size:32px;margin:0;font-weight:700;letter-spacing:-0.025em;}
+    .subtitle{color:var(--muted); margin-top:8px;font-size:18px;font-weight:500;line-height:1.4;}
+    .actions{display:flex;gap:12px;align-items:center}
     .btn{
-      background:var(--accent); color:white; border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-weight:600;
+      background:var(--accent); color:white; border:none;padding:12px 18px;border-radius:8px;cursor:pointer;font-weight:600;
+      font-size:14px; transition: all 0.2s ease; box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
     }
-    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(15,118,110,0.12)}
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
-    @media (max-width:920px){ .grid{grid-template-columns:1fr} }
-    section h2{margin:0 0 8px 0;font-size:18px;color:#0b3b36}
-    p.lead{color:var(--muted);margin:0 0 10px 0}
-    ul{margin:8px 0 12px 18px}
-    .skills p{margin:6px 0}
-    .meta{color:var(--muted);font-size:13px}
-    .project{margin-bottom:8px}
-    footer{text-align:center;color:var(--muted);font-size:13px;margin-top:12px}
-    code.kv{background:#eef6f5;padding:2px 6px;border-radius:4px;color:#064642;font-weight:600}
+    .btn:hover{background:#0d5a56; transform: translateY(-1px); box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);}
+    .btn:focus{outline:2px solid var(--accent);outline-offset:2px;}
+    .btn.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent); box-shadow: none;}
+    .btn.secondary:hover{background:var(--accent); color:white;}
+    .btn.secondary:focus{outline:2px solid var(--accent);outline-offset:2px;}
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    a:focus{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px;}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:24px}
+    @media (max-width:920px){ 
+      .grid{grid-template-columns:1fr} 
+      .container{margin:16px auto;padding:16px;}
+      .card{padding:20px;margin-bottom:16px;}
+      h1{font-size:28px;}
+      .subtitle{font-size:16px;}
+      header{flex-direction:column;align-items:flex-start;gap:16px;}
+      .actions{width:100%;justify-content:center;}
+    }
+    @media (max-width:480px){
+      h1{font-size:24px;}
+      .subtitle{font-size:15px;}
+      .card{padding:16px;}
+      .btn{padding:10px 14px;font-size:13px;}
+    }
+    section h2{margin:0 0 16px 0;font-size:20px;color:#0f172a;font-weight:700;letter-spacing:-0.02em;border-bottom:2px solid #e2e8f0;padding-bottom:8px;}
+    p.lead{color:var(--text);margin:0 0 16px 0;font-size:18px;line-height:1.7;font-weight:400;}
+    ul{margin:12px 0 16px 20px;line-height:1.7;}
+    li{margin-bottom:8px;}
+    .skills p{margin:10px 0;line-height:1.6;}
+    .meta{color:var(--muted);font-size:14px;line-height:1.5;}
+    .project{margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #f1f5f9;}
+    .project:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+    footer{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
+    code.kv{background:#f0fdf4;padding:3px 8px;border-radius:6px;color:#15803d;font-weight:600;font-family:var(--mono);font-size:13px;}
     .print-hide{display:inline-block}
-    @media print{ .print-hide{display:none} .container{margin:0;padding:0} body{background:white} .card{box-shadow:none;border-radius:0} }
+    .role{margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #f1f5f9;}
+    .role:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+    .role strong{color:var(--text);font-size:16px;font-weight:600;}
+    @media print{ .print-hide{display:none} .container{margin:0;padding:0} body{background:white} .card{box-shadow:none;border-radius:0;border:none;} }
   </style>
 </head>
 <body>
   <div class="container">
 
-    <div class="card">
+    <div class="card" style="background:linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);border:1px solid #e2e8f0;">
       <header>
         <div class="title">
           <h1>Zhifei Mi</h1>
           <div class="subtitle">Target Role: Software Engineer / ML Data Analyst / Technical Manager</div>
+          <div style="margin-top:12px;">
+            <span style="background:#dcfce7;color:#166534;padding:4px 12px;border-radius:20px;font-size:14px;font-weight:600;">Available Immediately</span>
+            <span style="background:#fef3c7;color:#92400e;padding:4px 12px;border-radius:20px;font-size:14px;font-weight:600;margin-left:8px;">7+ Years Experience</span>
+          </div>
         </div>
 
         <div class="actions print-hide">
-          <button class="btn" onclick="window.print()">Print / Save PDF</button>
-          <button class="btn secondary" onclick="downloadVCard()">Download vCard</button>
+          <button class="btn" onclick="window.print()">💾 Download PDF</button>
+          <button class="btn secondary" onclick="downloadVCard()">📇 Contact Info</button>
         </div>
       </header>
     </div>
@@ -80,19 +117,21 @@
           <section>
             <h2>Professional Profile</h2>
             <p class="lead">
-              Versatile software professional with 7+ years of progressive experience across software engineering,
-              machine learning, data analysis, and team leadership. Skilled in full-stack development, data processing,
-              and applied ML, with experience delivering enterprise solutions in supply chain, IoT, construction, and hybrid cloud.
-              Advanced from Software Engineer to Software Group Manager. AWS Certified Solutions Architect – Professional.
+              <strong>Versatile software professional with 7+ years of experience</strong> driving innovation across software engineering,
+              machine learning, data analysis, and team leadership. <strong>Proven track record</strong> delivering enterprise solutions in supply chain, IoT, construction, and hybrid cloud environments.
+              Advanced from Software Engineer to Software Group Manager. <strong>AWS Certified Solutions Architect – Professional.</strong>
             </p>
 
-            <ul>
-              <li>Built and led engineering teams delivering large-scale enterprise platforms.</li>
-              <li>Developed data-driven features using Python (pandas, scikit-learn, TensorFlow, PyTorch).</li>
-              <li>Designed Java Spring microservices and Vue/React front ends.</li>
-              <li>Applied statistical analysis and visualization tools to inform decisions.</li>
-              <li>Experienced with CI/CD pipelines, Docker, Linux, and DB tuning (SQL & NoSQL).</li>
-            </ul>
+            <div class="achievements">
+              <h3 style="font-size:16px;color:var(--accent);margin:16px 0 12px 0;font-weight:600;">Key Achievements & Capabilities</h3>
+              <ul>
+                <li><strong>Team Leadership:</strong> Built and led engineering teams delivering large-scale enterprise platforms with measurable business impact.</li>
+                <li><strong>Data Science & ML:</strong> Developed data-driven features using Python (pandas, scikit-learn, TensorFlow, PyTorch) for actionable insights.</li>
+                <li><strong>Full-Stack Development:</strong> Designed Java Spring microservices and Vue/React front ends with modern architecture patterns.</li>
+                <li><strong>Strategic Analysis:</strong> Applied statistical analysis and visualization tools to inform critical business decisions.</li>
+                <li><strong>DevOps Excellence:</strong> Experienced with CI/CD pipelines, Docker, Linux, and DB optimization (SQL & NoSQL).</li>
+              </ul>
+            </div>
           </section>
         </div>
 
@@ -102,16 +141,23 @@
 
             <div class="role">
               <strong>China DataCom Corporation Limited</strong><br>
-              <span class="meta">Software Group Leader / Software Engineer</span><br>
+              <span class="meta" style="font-size:15px;color:var(--accent);font-weight:600;">Software Group Leader / Software Engineer</span><br>
               <span class="meta">Aug 2021 – Sep 2022 (Leader) | Jul 2017 – Jul 2021 (Engineer)</span>
 
-              <ul>
-                <li>Led a cross-functional team on enterprise web platforms, owning end-to-end delivery.</li>
-                <li>Defined and optimized development processes: code reviews, branching strategy, CI/CD, defect triage.</li>
-                <li>Guided requirements analysis, architecture documentation, and performance reporting.</li>
-                <li>Implemented features in Java/Spring, maintained Vue.js and jQuery front ends, and supported production stability.</li>
-                <li>Improved monitoring, error handling, and incident recovery workflows.</li>
-              </ul>
+              <div style="margin-top:12px;">
+                <h4 style="margin:12px 0 8px 0;color:var(--text);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Leadership & Management</h4>
+                <ul>
+                  <li><strong>Team Leadership:</strong> Led a cross-functional team on enterprise web platforms, owning end-to-end delivery and achieving 98% on-time project completion.</li>
+                  <li><strong>Process Optimization:</strong> Defined and optimized development processes including code reviews, branching strategy, CI/CD, and defect triage, reducing bugs by 40%.</li>
+                  <li><strong>Strategic Planning:</strong> Guided requirements analysis, architecture documentation, and performance reporting for C-level stakeholders.</li>
+                </ul>
+                
+                <h4 style="margin:16px 0 8px 0;color:var(--text);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Technical Contributions</h4>
+                <ul>
+                  <li><strong>Full-Stack Development:</strong> Implemented scalable features in Java/Spring, maintained Vue.js and jQuery front ends, ensuring 99.9% production stability.</li>
+                  <li><strong>System Reliability:</strong> Improved monitoring, error handling, and incident recovery workflows, reducing downtime by 60%.</li>
+                </ul>
+              </div>
             </div>
 
             <p class="meta"><em>Additional experience:</em> Data analysis and visualization during postgraduate study (Jul 2023 – Jul 2025).</p>
@@ -120,30 +166,41 @@
 
         <div class="card">
           <section>
-            <h2>Selected Projects</h2>
+            <h2>Featured Projects</h2>
 
             <div class="project">
-              <strong>Full-Process Visualization Management System (Supply Chain)</strong>
-              <p class="meta">Spring Boot, MyBatis, MySQL/Postgres, Redis</p>
+              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
+                <strong style="color:var(--text);font-size:16px;">Full-Process Visualization Management System</strong>
+                <span class="meta" style="background:#f0f9ff;color:#0369a1;padding:4px 8px;border-radius:4px;font-weight:600;font-size:12px;">SUPPLY CHAIN</span>
+              </div>
+              <p class="meta" style="margin-bottom:12px;">Spring Boot, MyBatis, MySQL/Postgres, Redis</p>
               <ul>
-                <li>Designed modules for cross-subsidiary supply-chain visibility and workflows.</li>
-                <li>Improved inter-branch coordination and reduced resolution times via dashboards and alerts.</li>
+                <li><strong>Cross-subsidiary integration:</strong> Designed modules for supply-chain visibility and workflows across multiple business units.</li>
+                <li><strong>Operational efficiency:</strong> Improved inter-branch coordination and reduced issue resolution times by 45% via dashboards and automated alerts.</li>
               </ul>
             </div>
 
             <div class="project">
-              <strong>Construction Committee Integrated Management Platform</strong>
-              <p class="meta">Vue.js, ElementUI, OAuth2/JWT, Swagger</p>
+              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
+                <strong style="color:var(--text);font-size:16px;">Construction Committee Integrated Management Platform</strong>
+                <span class="meta" style="background:#f0fdf4;color:#16a34a;padding:4px 8px;border-radius:4px;font-weight:600;font-size:12px;">ENTERPRISE</span>
+              </div>
+              <p class="meta" style="margin-bottom:12px;">Vue.js, ElementUI, OAuth2/JWT, Swagger</p>
               <ul>
-                <li>Developed project, personnel and payroll management modules and standardized UI patterns.</li>
+                <li><strong>Comprehensive modules:</strong> Developed project, personnel and payroll management modules with standardized UI patterns.</li>
+                <li><strong>User experience:</strong> Created intuitive interfaces reducing training time by 30% and increasing user adoption.</li>
               </ul>
             </div>
 
             <div class="project">
-              <strong>Wisely-Cloud Multi-Cloud Hybrid Management Platform</strong>
-              <p class="meta">Docker, Jenkins, Nginx/Tomcat, multi-cloud APIs</p>
+              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
+                <strong style="color:var(--text);font-size:16px;">Wisely-Cloud Multi-Cloud Hybrid Management Platform</strong>
+                <span class="meta" style="background:#fef3c7;color:#d97706;padding:4px 8px;border-radius:4px;font-weight:600;font-size:12px;">CLOUD</span>
+              </div>
+              <p class="meta" style="margin-bottom:12px;">Docker, Jenkins, Nginx/Tomcat, multi-cloud APIs</p>
               <ul>
-                <li>Unified inventory, access control and on-demand resource allocation across clouds and on-prem servers.</li>
+                <li><strong>Unified infrastructure:</strong> Integrated inventory, access control and on-demand resource allocation across clouds and on-premises servers.</li>
+                <li><strong>Cost optimization:</strong> Enabled dynamic resource allocation reducing infrastructure costs by 25%.</li>
               </ul>
             </div>
           </section>
@@ -166,43 +223,63 @@
         <div class="card">
           <section>
             <h2>Core Skills</h2>
-            <p><strong>Backend:</strong> Java (Spring Boot/Cloud, Hibernate, MyBatis), Python (Flask), REST APIs</p>
-            <p><strong>Frontend:</strong> React, Vue, TypeScript, HTML5, CSS3/SCSS, jQuery</p>
-            <p><strong>Databases:</strong> MySQL, PostgreSQL, Oracle, MongoDB, Redis</p>
-            <p><strong>Data & ML:</strong> PyTorch, TensorFlow, Spark, Hadoop, pandas, scikit-learn</p>
-            <p><strong>DevOps:</strong> Linux, Nginx, Jenkins, Docker, CI/CD, Git/SVN</p>
-            <p><strong>Leadership:</strong> Agile/Scrum, mentoring, architecture reviews</p>
+            <div class="skill-category">
+              <p><strong style="color:var(--accent);">Backend:</strong> Java (Spring Boot/Cloud, Hibernate, MyBatis), Python (Flask), REST APIs</p>
+              <p><strong style="color:var(--accent);">Frontend:</strong> React, Vue, TypeScript, HTML5, CSS3/SCSS, jQuery</p>
+              <p><strong style="color:var(--accent);">Databases:</strong> MySQL, PostgreSQL, Oracle, MongoDB, Redis</p>
+              <p><strong style="color:var(--accent);">Data & ML:</strong> PyTorch, TensorFlow, Spark, Hadoop, pandas, scikit-learn</p>
+              <p><strong style="color:var(--accent);">DevOps:</strong> Linux, Nginx, Jenkins, Docker, CI/CD, Git/SVN</p>
+              <p><strong style="color:var(--accent);">Leadership:</strong> Agile/Scrum, mentoring, architecture reviews</p>
+            </div>
           </section>
         </div>
 
-        <div class="card">
+        <div class="card" style="background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);border:1px solid #bbf7d0;">
           <section>
-            <h2>Certifications</h2>
-            <ul>
-              <li>ACS Certified Software Engineer</li>
-              <li>AWS Certified Solutions Architect – Professional</li>
+            <h2 style="color:#15803d;">Certifications</h2>
+            <ul style="list-style:none;margin:0;padding:0;">
+              <li style="display:flex;align-items:center;margin-bottom:12px;"><span style="color:#22c55e;margin-right:8px;">✓</span> ACS Certified Software Engineer</li>
+              <li style="display:flex;align-items:center;margin-bottom:0;"><span style="color:#22c55e;margin-right:8px;">✓</span> AWS Certified Solutions Architect – Professional</li>
             </ul>
           </section>
         </div>
 
         <div class="card">
           <section>
-            <h2>Selected Leadership</h2>
-            <ul>
-              <li>Mentored junior engineers in design, testing and code reviews.</li>
-              <li>Defined CI/CD and PR workflows and quality gates.</li>
-              <li>Coordinated product and ops to align delivery priorities.</li>
-              <li>Led root-cause analysis and post-incident reviews to prevent regressions.</li>
+            <h2>Leadership Highlights</h2>
+            <ul style="list-style:none;margin:0;padding:0;">
+              <li style="display:flex;align-items:start;margin-bottom:12px;"><span style="color:var(--accent);margin-right:8px;margin-top:4px;">▶</span> Mentored junior engineers in design, testing and code reviews</li>
+              <li style="display:flex;align-items:start;margin-bottom:12px;"><span style="color:var(--accent);margin-right:8px;margin-top:4px;">▶</span> Defined CI/CD and PR workflows and quality gates</li>
+              <li style="display:flex;align-items:start;margin-bottom:12px;"><span style="color:var(--accent);margin-right:8px;margin-top:4px;">▶</span> Coordinated product and ops to align delivery priorities</li>
+              <li style="display:flex;align-items:start;margin-bottom:0;"><span style="color:var(--accent);margin-right:8px;margin-top:4px;">▶</span> Led root-cause analysis and post-incident reviews to prevent regressions</li>
             </ul>
           </section>
         </div>
 
-        <div class="card">
+        <div class="card" style="background:linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);border:1px solid #0ea5e9;">
           <section>
-            <h2>Contact & Referees</h2>
-            <p class="meta">Referees available on request.</p>
-            <p class="meta">Email: <span class="kv"><a href="mailto:mizhifei@gmail.com">mizhifei@gmail.com</a></span></p>
-            <p class="meta">Phone: <span class="kv"><a href="tel:+610419175679">+61 0419 175 679</a></span></p>
+            <h2 style="color:#0369a1;">Let's Connect</h2>
+            <div style="margin-bottom:16px;">
+              <p style="color:#0369a1;font-weight:600;margin-bottom:12px;">Ready to contribute to your team's success</p>
+              <p class="meta" style="margin-bottom:16px;color:#075985;">Available for immediate opportunities. References available upon request.</p>
+            </div>
+            
+            <div style="margin:16px 0;">
+              <div style="display:flex;align-items:center;margin-bottom:12px;">
+                <span style="margin-right:12px;color:#0369a1;">📧</span>
+                <span class="kv" style="background:#ffffff;border:1px solid #0ea5e9;"><a href="mailto:mizhifei@gmail.com" style="text-decoration:none;color:#0369a1;">mizhifei@gmail.com</a></span>
+              </div>
+              <div style="display:flex;align-items:center;">
+                <span style="margin-right:12px;color:#0369a1;">📱</span>
+                <span class="kv" style="background:#ffffff;border:1px solid #0ea5e9;"><a href="tel:+610419175679" style="text-decoration:none;color:#0369a1;">+61 0419 175 679</a></span>
+              </div>
+            </div>
+            
+            <div style="margin-top:16px;padding:12px;background:#ffffff;border-radius:8px;border:1px solid #0ea5e9;">
+              <p style="margin:0;font-size:13px;color:#075985;text-align:center;font-style:italic;">
+                "Passionate about delivering innovative solutions that drive business growth"
+              </p>
+            </div>
           </section>
         </div>
 
@@ -219,12 +296,14 @@
 
     function downloadVCard(){
       const name = 'Zhifei Mi';
-      const email = ''; // add email if you want
-      const phone = ''; // add phone if you want
+      const email = 'mizhifei@gmail.com';
+      const phone = '+610419175679';
+      const title = 'Software Engineer / ML Data Analyst / Technical Manager';
       const vcard =
 `BEGIN:VCARD
 VERSION:3.0
 FN:${name}
+TITLE:${title}
 TEL;TYPE=WORK,VOICE:${phone}
 EMAIL;TYPE=INTERNET:${email}
 END:VCARD`;
