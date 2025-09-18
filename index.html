@@ -1,120 +1,242 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zhifei Mi — Resume</title>
+  <style>
+    :root{
+      --bg:#f7f8fb; --card:#ffffff; --muted:#6b7280; --accent:#0f766e; --maxw:900px;
+      --sans: "Helvetica Neue", Arial, sans-serif;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:var(--bg);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .container{
+      max-width:var(--maxw);
+      margin:28px auto;
+      padding:20px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:10px;
+      box-shadow:0 6px 20px rgba(15,23,42,0.08);
+      padding:22px;
+      margin-bottom:18px;
+    }
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .title{
+      line-height:1;
+    }
+    h1{font-size:28px;margin:0;}
+    .subtitle{color:var(--muted); margin-top:6px;}
+    .actions{display:flex;gap:8px;align-items:center}
+    .btn{
+      background:var(--accent); color:white; border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-weight:600;
+    }
+    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(15,118,110,0.12)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    @media (max-width:920px){ .grid{grid-template-columns:1fr} }
+    section h2{margin:0 0 8px 0;font-size:18px;color:#0b3b36}
+    p.lead{color:var(--muted);margin:0 0 10px 0}
+    ul{margin:8px 0 12px 18px}
+    .skills p{margin:6px 0}
+    .meta{color:var(--muted);font-size:13px}
+    .project{margin-bottom:8px}
+    footer{text-align:center;color:var(--muted);font-size:13px;margin-top:12px}
+    code.kv{background:#eef6f5;padding:2px 6px;border-radius:4px;color:#064642;font-weight:600}
+    .print-hide{display:inline-block}
+    @media print{ .print-hide{display:none} .container{margin:0;padding:0} body{background:white} .card{box-shadow:none;border-radius:0} }
+  </style>
+</head>
+<body>
+  <div class="container">
 
-export default function ResumePage() {
-  return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-4xl mx-auto space-y-6">
-        <header className="text-center">
-          <h1 className="text-4xl font-bold">Zhifei Mi</h1>
-          <p className="text-lg text-gray-600 mt-2">
-            Target Role: Software Engineer / ML Data Analyst / Technical Manager
-          </p>
-        </header>
+    <div class="card">
+      <header>
+        <div class="title">
+          <h1>Zhifei Mi</h1>
+          <div class="subtitle">Target Role: Software Engineer / ML Data Analyst / Technical Manager</div>
+        </div>
 
-        <Card>
-          <CardContent className="p-6 space-y-4">
-            <h2 className="text-2xl font-semibold">Professional Profile</h2>
-            <p>
-              Versatile software professional with 7+ years of progressive experience across
-              software engineering, machine learning, data analysis, and team leadership.
-              Skilled in full‑stack development, data processing, and applied ML, with a proven
-              record of delivering enterprise solutions in supply chain, IoT, construction, and
-              hybrid cloud.
+        <div class="actions print-hide">
+          <button class="btn" onclick="window.print()">Print / Save PDF</button>
+          <button class="btn secondary" onclick="downloadVCard()">Download vCard</button>
+        </div>
+      </header>
+    </div>
+
+    <div class="grid">
+
+      <!-- main column -->
+      <div>
+        <div class="card">
+          <section>
+            <h2>Professional Profile</h2>
+            <p class="lead">
+              Versatile software professional with 7+ years of progressive experience across software engineering,
+              machine learning, data analysis, and team leadership. Skilled in full-stack development, data processing,
+              and applied ML, with experience delivering enterprise solutions in supply chain, IoT, construction, and hybrid cloud.
+              Advanced from Software Engineer to Software Group Manager. AWS Certified Solutions Architect – Professional.
             </p>
-            <ul className="list-disc pl-6 space-y-1">
-              <li>Built and led engineering teams delivering large‑scale enterprise platforms.</li>
-              <li>
-                Developed data‑driven features using Python (pandas, scikit‑learn, TensorFlow,
-                PyTorch).
-              </li>
-              <li>
-                Designed and implemented resilient Java Spring microservices and React/Vue
-                front ends.
-              </li>
-              <li>Applied statistical analysis and visualization tools for decision‑making.</li>
-              <li>
-                Hands‑on experience with CI/CD pipelines, Docker, Linux, SQL & NoSQL optimization.
-              </li>
+
+            <ul>
+              <li>Built and led engineering teams delivering large-scale enterprise platforms.</li>
+              <li>Developed data-driven features using Python (pandas, scikit-learn, TensorFlow, PyTorch).</li>
+              <li>Designed Java Spring microservices and Vue/React front ends.</li>
+              <li>Applied statistical analysis and visualization tools to inform decisions.</li>
+              <li>Experienced with CI/CD pipelines, Docker, Linux, and DB tuning (SQL & NoSQL).</li>
             </ul>
-          </CardContent>
-        </Card>
+          </section>
+        </div>
 
-        <Card>
-          <CardContent className="p-6 space-y-4">
-            <h2 className="text-2xl font-semibold">Core Skills</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <h3 className="font-semibold">Backend</h3>
-                <p>Java (Spring Boot/Cloud), Python (Flask), REST APIs, OAuth2/JWT</p>
-              </div>
-              <div>
-                <h3 className="font-semibold">Frontend</h3>
-                <p>React.js, Vue.js, TypeScript, HTML5, CSS3, Electron</p>
-              </div>
-              <div>
-                <h3 className="font-semibold">Databases</h3>
-                <p>MySQL, PostgreSQL, Oracle, MongoDB, Redis</p>
-              </div>
-              <div>
-                <h3 className="font-semibold">Data & ML</h3>
-                <p>PyTorch, TensorFlow, Spark, Hadoop, pandas, scikit‑learn</p>
-              </div>
-              <div>
-                <h3 className="font-semibold">DevOps & Infra</h3>
-                <p>Linux, Nginx, Jenkins, Docker, CI/CD</p>
-              </div>
-              <div>
-                <h3 className="font-semibold">Leadership</h3>
-                <p>Agile/Scrum, Team leadership, Architecture & reviews</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        <div class="card">
+          <section>
+            <h2>Professional Experience</h2>
 
-        <Card>
-          <CardContent className="p-6 space-y-4">
-            <h2 className="text-2xl font-semibold">Professional Experience</h2>
-            <div>
-              <h3 className="font-semibold">
-                China DataCom Corporation Limited – Software Group Leader / Software Engineer
-              </h3>
-              <p className="text-sm text-gray-600">Aug 2021 – Sep 2022 (Leader) | Jul 2017 – Jul 2021 (Engineer)</p>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Led a cross‑functional team on enterprise web platforms.</li>
-                <li>Defined and optimized dev processes (CI/CD, reviews, defect triage).</li>
-                <li>Developed features in Java/Spring and Vue.js/jQuery front ends.</li>
-                <li>Enhanced monitoring, incident recovery, and performance optimization.</li>
+            <div class="role">
+              <strong>China DataCom Corporation Limited</strong><br>
+              <span class="meta">Software Group Leader / Software Engineer</span><br>
+              <span class="meta">Aug 2021 – Sep 2022 (Leader) | Jul 2017 – Jul 2021 (Engineer)</span>
+
+              <ul>
+                <li>Led a cross-functional team on enterprise web platforms, owning end-to-end delivery.</li>
+                <li>Defined and optimized development processes: code reviews, branching strategy, CI/CD, defect triage.</li>
+                <li>Guided requirements analysis, architecture documentation, and performance reporting.</li>
+                <li>Implemented features in Java/Spring, maintained Vue.js and jQuery front ends, and supported production stability.</li>
+                <li>Improved monitoring, error handling, and incident recovery workflows.</li>
               </ul>
             </div>
-          </CardContent>
-        </Card>
 
-        <Card>
-          <CardContent className="p-6 space-y-4">
-            <h2 className="text-2xl font-semibold">Education</h2>
-            <ul className="list-disc pl-6 space-y-1">
-              <li>Master of Computer Science – University of Wollongong (2023 – 2025)</li>
-              <li>Master of Engineering – Arizona State University (2021 – 2023)</li>
-              <li>Bachelor of Engineering – Inner Mongolia University of Technology (2013 – 2017)</li>
+            <p class="meta"><em>Additional experience:</em> Data analysis and visualization during postgraduate study (Jul 2023 – Jul 2025).</p>
+          </section>
+        </div>
+
+        <div class="card">
+          <section>
+            <h2>Selected Projects</h2>
+
+            <div class="project">
+              <strong>Full-Process Visualization Management System (Supply Chain)</strong>
+              <p class="meta">Spring Boot, MyBatis, MySQL/Postgres, Redis</p>
+              <ul>
+                <li>Designed modules for cross-subsidiary supply-chain visibility and workflows.</li>
+                <li>Improved inter-branch coordination and reduced resolution times via dashboards and alerts.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <strong>Construction Committee Integrated Management Platform</strong>
+              <p class="meta">Vue.js, ElementUI, OAuth2/JWT, Swagger</p>
+              <ul>
+                <li>Developed project, personnel and payroll management modules and standardized UI patterns.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <strong>Wisely-Cloud Multi-Cloud Hybrid Management Platform</strong>
+              <p class="meta">Docker, Jenkins, Nginx/Tomcat, multi-cloud APIs</p>
+              <ul>
+                <li>Unified inventory, access control and on-demand resource allocation across clouds and on-prem servers.</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <div class="card">
+          <section>
+            <h2>Education</h2>
+            <ul>
+              <li><strong>Master of Computer Science (Machine Learning & Big Data)</strong>, University of Wollongong — 2023–2025</li>
+              <li><strong>Master of Engineering</strong>, Arizona State University — 2021–2023 (GPA 3.93/4)</li>
+              <li><strong>Bachelor of Engineering (Electronic Information Engineering)</strong>, Inner Mongolia University of Technology — 2013–2017</li>
             </ul>
-          </CardContent>
-        </Card>
+          </section>
+        </div>
+      </div>
 
-        <Card>
-          <CardContent className="p-6 space-y-4">
-            <h2 className="text-2xl font-semibold">Certifications</h2>
-            <ul className="list-disc pl-6 space-y-1">
+      <!-- sidebar -->
+      <aside>
+        <div class="card">
+          <section>
+            <h2>Core Skills</h2>
+            <p><strong>Backend:</strong> Java (Spring Boot/Cloud, Hibernate, MyBatis), Python (Flask), REST APIs</p>
+            <p><strong>Frontend:</strong> React, Vue, TypeScript, HTML5, CSS3/SCSS, jQuery</p>
+            <p><strong>Databases:</strong> MySQL, PostgreSQL, Oracle, MongoDB, Redis</p>
+            <p><strong>Data & ML:</strong> PyTorch, TensorFlow, Spark, Hadoop, pandas, scikit-learn</p>
+            <p><strong>DevOps:</strong> Linux, Nginx, Jenkins, Docker, CI/CD, Git/SVN</p>
+            <p><strong>Leadership:</strong> Agile/Scrum, mentoring, architecture reviews</p>
+          </section>
+        </div>
+
+        <div class="card">
+          <section>
+            <h2>Certifications</h2>
+            <ul>
               <li>ACS Certified Software Engineer</li>
               <li>AWS Certified Solutions Architect – Professional</li>
             </ul>
-          </CardContent>
-        </Card>
+          </section>
+        </div>
 
-        <footer className="text-center text-gray-600 mt-8">
-          <p>Referees available on request.</p>
-        </footer>
-      </div>
+        <div class="card">
+          <section>
+            <h2>Selected Leadership</h2>
+            <ul>
+              <li>Mentored junior engineers in design, testing and code reviews.</li>
+              <li>Defined CI/CD and PR workflows and quality gates.</li>
+              <li>Coordinated product and ops to align delivery priorities.</li>
+              <li>Led root-cause analysis and post-incident reviews to prevent regressions.</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="card">
+          <section>
+            <h2>Contact & Referees</h2>
+            <p class="meta">Referees available on request.</p>
+            <p class="meta">Email: <span class="kv">(add your email)</span></p>
+            <p class="meta">Phone: <span class="kv">(add your phone)</span></p>
+          </section>
+        </div>
+
+      </aside>
     </div>
-  );
-}
+
+    <footer class="card">
+      <div class="meta" style="text-align:center">© <span id="year"></span> Zhifei Mi — Resume</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function downloadVCard(){
+      const name = 'Zhifei Mi';
+      const email = ''; // add email if you want
+      const phone = ''; // add phone if you want
+      const vcard =
+`BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+TEL;TYPE=WORK,VOICE:${phone}
+EMAIL;TYPE=INTERNET:${email}
+END:VCARD`;
+      const blob = new Blob([vcard], {type:'text/vcard'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'Zhifei_Mi.vcf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
