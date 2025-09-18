@@ -36,13 +36,86 @@
       padding:28px;
       margin-bottom:24px;
     }
-    header{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+      position:relative;
+    }
+    .header-left{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      flex:1;
+      min-width:0;
+    }
     .title{
       line-height:1.2;
+      flex:1;
+      min-width:0;
     }
-    h1{font-size:28px;margin:0;font-weight:400;color:#1e293b;}
-    .subtitle{color:var(--muted); margin-top:8px;font-size:16px;font-weight:400;line-height:1.4;font-style:italic;}
-    .actions{display:flex;gap:12px;align-items:center}
+    .profile-photo{
+      width:88px;
+      height:88px;
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid var(--card);
+      box-shadow:0 4px 12px rgb(0 0 0 / 0.15), 0 0 0 1px var(--border);
+      flex-shrink:0;
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .profile-photo:hover{
+      transform:scale(1.05);
+      box-shadow:0 6px 20px rgb(0 0 0 / 0.2), 0 0 0 1px var(--border);
+    }
+    .status-badges{
+      display:flex;
+      gap:8px;
+      margin-top:14px;
+      flex-wrap:wrap;
+    }
+    .badge{
+      background:linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      color:#475569;
+      padding:6px 14px;
+      border-radius:20px;
+      font-size:13px;
+      font-weight:600;
+      border:1px solid #e2e8f0;
+      box-shadow:0 1px 2px rgb(0 0 0 / 0.05);
+      transition:all 0.2s ease;
+      white-space:nowrap;
+    }
+    .badge:hover{
+      background:linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      transform:translateY(-1px);
+      box-shadow:0 2px 4px rgb(0 0 0 / 0.1);
+    }
+    h1{
+      font-size:32px;
+      margin:0;
+      font-weight:500;
+      color:#1e293b;
+      letter-spacing:-0.5px;
+      line-height:1.1;
+    }
+    .subtitle{
+      color:var(--muted);
+      margin-top:6px;
+      font-size:17px;
+      font-weight:500;
+      line-height:1.4;
+      font-style:normal;
+    }
+    .actions{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      flex-shrink:0;
+      margin-top:4px;
+    }
     .btn{
       background:var(--accent); color:white; border:none;padding:10px 16px;border-radius:var(--radius);cursor:pointer;font-weight:500;
       font-size:14px; transition: background-color 0.2s ease; font-family: var(--sans);
@@ -56,20 +129,27 @@
     a:hover{text-decoration:underline;}
     a:focus{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px;}
     .grid{display:grid;grid-template-columns:1fr 340px;gap:24px}
-    @media (max-width:920px){ 
-      .grid{grid-template-columns:1fr} 
+    @media (max-width:920px){
+      .grid{grid-template-columns:1fr}
       .container{margin:16px auto;padding:16px;}
       .card{padding:20px;margin-bottom:16px;}
-      h1{font-size:28px;}
+      h1{font-size:28px;letter-spacing:-0.3px;}
       .subtitle{font-size:16px;}
-      header{flex-direction:column;align-items:flex-start;gap:16px;}
-      .actions{width:100%;justify-content:center;}
+      header{flex-direction:column;align-items:stretch;gap:20px;}
+      .header-left{gap:16px;}
+      .actions{width:100%;justify-content:center;margin-top:0;}
+      .profile-photo{width:72px;height:72px;}
+      .status-badges{justify-content:flex-start;}
     }
     @media (max-width:480px){
-      h1{font-size:24px;}
+      h1{font-size:24px;letter-spacing:-0.2px;}
       .subtitle{font-size:15px;}
       .card{padding:16px;}
       .btn{padding:10px 14px;font-size:13px;}
+      .header-left{flex-direction:column;align-items:flex-start;gap:12px;}
+      .profile-photo{width:64px;height:64px;align-self:center;}
+      .status-badges{justify-content:center;gap:6px;}
+      .badge{padding:5px 12px;font-size:12px;}
     }
     section h2{margin:0 0 16px 0;font-size:18px;color:#1e293b;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:8px;}
     p.lead{color:var(--text);margin:0 0 16px 0;font-size:16px;line-height:1.6;font-weight:400;}
@@ -93,12 +173,17 @@
 
     <div class="card">
       <header>
-        <div class="title">
-          <h1>Zhifei Mi</h1>
-          <div class="subtitle">Target Role: Software Engineer / ML Data Analyst / Technical Manager</div>
-          <div style="margin-top:12px;">
-            <span style="background:#f1f5f9;color:#475569;padding:4px 12px;border-radius:4px;font-size:13px;font-weight:500;">Available Immediately</span>
-            <span style="background:#f1f5f9;color:#475569;padding:4px 12px;border-radius:4px;font-size:13px;font-weight:500;margin-left:8px;">7+ Years Experience</span>
+        <div class="header-left">
+          <img src="profile-photo.jpg" alt="Zhifei Mi" class="profile-photo" />
+
+          <div class="title">
+            <h1>Zhifei Mi</h1>
+            <div class="subtitle">Software Engineer • ML Data Analyst • Technical Manager</div>
+            <div class="status-badges">
+              <span class="badge">Available Immediately</span>
+              <span class="badge">7+ Years Experience</span>
+              <span class="badge">AWS Certified</span>
+            </div>
           </div>
         </div>
 
@@ -210,7 +295,7 @@
           <section>
             <h2>Education</h2>
             <ul>
-              <li><strong>Master of Computer Science (Machine Learning & Big Data)</strong>, University of Wollongong — 2023–2025</li>
+              <li><strong>Master of Computer Science (Machine Learning & Big Data; Software Engineering, with Distinction)</strong>, University of Wollongong — 2023–2025</li>
               <li><strong>Master of Engineering</strong>, Arizona State University — 2021–2023 (GPA 3.93/4)</li>
               <li><strong>Bachelor of Engineering (Electronic Information Engineering)</strong>, Inner Mongolia University of Technology — 2013–2017</li>
             </ul>
@@ -265,13 +350,25 @@
             </div>
             
             <div style="margin:16px 0;">
+              <div style="display:flex;align-items:center;">
+                 <strong style="margin-right:12px;color:var(--text);font-size:14px;">GitHub:</strong>
+                 <span class="kv"><a href="https://github.com/zm377" style="text-decoration:none;">@zm377</a></span>
+              </div>
+              <div style="display:flex;align-items:center;">
+                 <strong style="margin-right:12px;color:var(--text);font-size:14px;">X:</strong>
+                 <span class="kv"><a href="https://x.com/zhifeimi" style="text-decoration:none;">@zhifeimi</a></span>
+              </div>
+              <div style="display:flex;align-items:center;">
+                <strong style="margin-right:12px;color:var(--text);font-size:14px;">LinkedIn:</strong>
+                <span class="kv"><a href="https://www.linkedin.com/in/zhifeimi/" style="text-decoration:none;">Zhifei Mi</a></span>
+              </div>
+              <div style="display:flex;align-items:center;">
+                <strong style="margin-right:12px;color:var(--text);font-size:14px;">Facebook:</strong>
+                <span class="kv"><a href="https://www.facebook.com/mizhifei" style="text-decoration:none;">@mizhifei</a></span>
+              </div>
               <div style="display:flex;align-items:center;margin-bottom:12px;">
                 <strong style="margin-right:12px;color:var(--text);font-size:14px;">Email:</strong>
                 <span class="kv"><a href="mailto:mizhifei@gmail.com" style="text-decoration:none;">mizhifei@gmail.com</a></span>
-              </div>
-              <div style="display:flex;align-items:center;">
-                <strong style="margin-right:12px;color:var(--text);font-size:14px;">Phone:</strong>
-                <span class="kv"><a href="tel:+610419175679" style="text-decoration:none;">+61 0419 175 679</a></span>
               </div>
             </div>
           </section>
